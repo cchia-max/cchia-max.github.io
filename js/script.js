@@ -117,6 +117,18 @@ document.addEventListener('DOMContentLoaded', () => {
   revealEls.forEach(el => io.observe(el));
 
   /* Animated stat counters */
+  function formatNum(n) {
+    if (n >= 1000000) {
+      const v = n / 1000000;
+      return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(1)) + 'M';
+    }
+    if (n >= 1000) {
+      const v = n / 1000;
+      return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(1)) + 'K';
+    }
+    return Math.floor(n).toString();
+  }
+
   const counters = document.querySelectorAll('.counter');
   const counterIO = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -129,20 +141,18 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach(c => counterIO.observe(c));
 
   function animateCounter(el) {
-    const raw = el.getAttribute('data-target') || el.textContent;
-    const match = raw.match(/[\d.]+/);
-    if (!match) return;
-    const target = parseFloat(match[0]);
-    const suffix = raw.replace(match[0], '');
+    const target = parseFloat(el.getAttribute('data-target'));
+    if (isNaN(target)) return;
+    const suffix = el.getAttribute('data-suffix') || '';
     const duration = 1400;
     const start = performance.now();
     function tick(now) {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      const current = (target * eased);
-      const display = target % 1 === 0 ? Math.floor(current) : current.toFixed(1);
-      el.textContent = display + suffix;
+      const current = target * eased;
+      el.textContent = formatNum(current) + suffix;
       if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = formatNum(target) + suffix;
     }
     requestAnimationFrame(tick);
   }
