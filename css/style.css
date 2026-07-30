@@ -495,7 +495,7 @@ section.tight { padding: 80px 0; }
 
 /* ---------------- CREATOR / POSTS ---------------- */
 .creator-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
-.creator-card { flex: 0 1 calc(33.333% - 16px);
+.creator-card { flex: 0 1 calc(33.333% - 16px); min-height: 300px;
   border: 1.5px solid var(--ink);
   border-radius: var(--radius);
   padding: 26px;
