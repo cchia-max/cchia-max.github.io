@@ -485,9 +485,9 @@ section.tight { padding: 80px 0; }
 .timeline-item h3 { font-size: 1.25rem; margin: 6px 0 4px; }
 .timeline-item .ti-org { font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 10px; font-weight: 500; }
 .timeline-item p.ti-desc { color: var(--ink-soft); font-size: 0.92rem; max-width: 620px; }
-.timeline-item { border-left: 3px solid transparent; transition: background 0.3s ease, border-color 0.3s ease; }
+.timeline-item { transition: background 0.3s ease; }
 .timeline-item:nth-child(even) { background: rgba(90,30,130,0.035); }
-.timeline-item:hover { background: var(--bg-alt); border-left-color: var(--accent); }
+.timeline-item:hover { background: var(--bg-alt); }
 
 @media (max-width: 700px) {
   .timeline-item { grid-template-columns: 1fr; gap: 8px; }
