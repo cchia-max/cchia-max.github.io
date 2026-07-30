@@ -6,10 +6,12 @@
 <title>About — Catarina Chia</title>
 <meta name="description" content="About Catarina Chia — Math &amp; Finance student at Santa Clara University, GTM &amp; growth builder.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<div class="progress-bar"></div>
 
 <header class="site-header">
   <nav class="navbar">
@@ -28,20 +30,28 @@
 
 <main>
 
-  <section class="hero" style="min-height: 60vh; padding-top: 160px;">
-    <div class="hero-blob"></div>
-    <span class="eyebrow">About Me</span>
-    <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem);">Math &amp; finance at heart, <span class="gradient">builder by nature.</span></h1>
-    <p class="sub">Double majoring in Mathematics and Finance at Santa Clara University, with a growing track record in startup growth, community building, and shipping consumer apps.</p>
+  <section class="hero" style="min-height: 62vh;">
+    <div class="container">
+      <span class="section-num">(01) About me</span>
+      <h1 class="reveal-mask" style="font-size: clamp(2.2rem, 5.2vw, 3.8rem);"><span>Math &amp; finance at heart, <span class="accent-text">builder</span> by nature.</span></h1>
+      <p class="sub reveal d-1">Double majoring in Mathematics and Finance at Santa Clara University, with a growing track record in startup growth, community building, and shipping consumer apps.</p>
+    </div>
   </section>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>MATH</span><span>FINANCE</span><span>COMMUNITY</span><span>GROWTH</span><span>STARTUPS</span>
+      <span>MATH</span><span>FINANCE</span><span>COMMUNITY</span><span>GROWTH</span><span>STARTUPS</span>
+    </div>
+  </div>
 
   <section class="tight">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">Bio</span>
-        <h2>A little about my journey</h2>
+      <div class="section-head">
+        <span class="section-num">(02) Bio</span>
+        <h2 class="reveal">A little about my journey</h2>
       </div>
-      <div class="card reveal" style="max-width: 780px; margin: 0 auto;">
+      <div class="card reveal" style="max-width: 820px;">
         <p>I'm a student, builder, and connector based in the United States, currently splitting my time between Santa Clara University and the startup world in San Francisco. My focus areas are math, finance, and startups — with a particular interest in technical growth and community building.</p>
         <br>
         <p>Outside of coursework, I'm building and shipping consumer apps, growing an audience around startups and personal growth, and staying active in the SF startup scene through events, coffee chats, and hands-on work at early-stage companies.</p>
@@ -51,20 +61,24 @@
 
   <section>
     <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">Education</span>
-        <h2>Academic background</h2>
+      <div class="section-head">
+        <span class="section-num">(03) Education</span>
+        <h2 class="reveal">Academic background</h2>
       </div>
-      <div class="timeline reveal">
-        <div class="timeline-item">
+      <div class="timeline">
+        <div class="timeline-item reveal">
           <div class="date">Santa Clara University</div>
-          <h3>B.S., Double Degree — Mathematics (Applied Math Emphasis) &amp; Finance</h3>
-          <p>Activities: Board Executive @ UMA and TSN, Venture Virtuoso Cohort 2026, Grand Challenges Scholars Program, Investment Club Member.</p>
+          <div>
+            <h3>B.S., Double Degree — Mathematics (Applied Math Emphasis) &amp; Finance</h3>
+            <p>Activities: Board Executive @ UMA and TSN, Venture Virtuoso Cohort 2026, Grand Challenges Scholars Program, Investment Club Member.</p>
+          </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-item reveal d-1">
           <div class="date">Valley Christian Schools, San Jose</div>
-          <h3>High School Diploma</h3>
-          <p>Activities: BEI Quest Incubator, Math Team, Varsity Cheer, DECA, French Honors Society, Team Manager for Men's Varsity Basketball, Chapel Speaker. Honors: AMSE Honors, Athletic Academic Honors, Community Service Distinction, French Honors, Academic Highest Honors, Principal Awards.</p>
+          <div>
+            <h3>High School Diploma</h3>
+            <p>Activities: BEI Quest Incubator, Math Team, Varsity Cheer, DECA, French Honors Society, Team Manager for Men's Varsity Basketball, Chapel Speaker. Honors: AMSE Honors, Athletic Academic Honors, Community Service Distinction, French Honors, Academic Highest Honors, Principal Awards.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -72,9 +86,9 @@
 
   <section class="tight">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">Skills</span>
-        <h2>Toolkit &amp; strengths</h2>
+      <div class="section-head">
+        <span class="section-num">(04) Skills</span>
+        <h2 class="reveal">Toolkit &amp; strengths</h2>
       </div>
       <div class="skill-cloud reveal">
         <span class="skill-pill">Equity Valuation</span>
@@ -96,15 +110,15 @@
   <section>
     <div class="container">
       <div class="grid-2">
-        <div class="card reveal">
-          <div class="icon">🏅</div>
+        <div class="card reveal-left">
+          <div class="icon">✺</div>
           <h3>Certifications</h3>
           <p><strong>Goldman Sachs</strong> — Operations Simulation (Dec 2025)</p>
           <p><strong>JPMorganChase</strong> — Investment Banking Simulation (Dec 2025)</p>
           <p style="margin-top:8px;">Plus 3 additional finance-forward certifications.</p>
         </div>
-        <div class="card reveal reveal-delay-1">
-          <div class="icon">🏆</div>
+        <div class="card reveal-right">
+          <div class="icon">✺</div>
           <h3>Honors &amp; Awards</h3>
           <p><strong>1st Place</strong> — DECA California, Project Management: Financial Literacy</p>
           <p><strong>2025 Principal Award</strong> — Valley Christian High School</p>
@@ -116,9 +130,9 @@
 
   <section class="tight">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">Languages</span>
-        <h2>Speaking &amp; writing</h2>
+      <div class="section-head">
+        <span class="section-num">(05) Languages</span>
+        <h2 class="reveal">Speaking &amp; writing</h2>
       </div>
       <div class="skill-cloud reveal">
         <span class="skill-pill">English — Native / Bilingual</span>
@@ -127,11 +141,20 @@
     </div>
   </section>
 
+  <section class="dark cta-band">
+    <div class="container reveal-scale">
+      <span class="section-num" style="color:#FF4D23;">(06) Next step</span>
+      <h2>Curious about my work in action?</h2>
+      <a href="experience.html" class="btn btn-solid magnetic">View my experience →</a>
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  <div class="container">
-    <p>© 2026 Catarina Chia. Built with care.</p>
+  <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+    <p>© 2026 Catarina Chia.</p>
+    <p><a href="https://www.linkedin.com/in/catarina-chia/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://x.com/catarina_chia" target="_blank" rel="noopener">X</a></p>
   </div>
 </footer>
 
