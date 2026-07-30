@@ -1,138 +1,150 @@
-// ===================================================
-// Catarina Chia — Portfolio Scripts v2
-// ===================================================
+// Catarina Chia - Portfolio Scripts v3
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.add('loaded');
 
   /* Active nav link */
   const path = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(link => {
     const href = link.getAttribute('href');
-    if (href === path || (path === '' && href === 'index.html')) link.classList.add('active');
+    if (href === path || (path === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
   });
 
   /* Mobile nav toggle */
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => links.classList.remove('open'));
+    });
   }
 
-  /* Header scroll shadow + scroll progress bar */
+  /* Header scroll shadow */
   const header = document.querySelector('.site-header');
-  const progressBar = document.querySelector('.progress-bar');
   const onScroll = () => {
     if (header) {
       if (window.scrollY > 12) header.classList.add('scrolled');
       else header.classList.remove('scrolled');
     }
-    if (progressBar) {
-      const h = document.documentElement;
-      const scrollTop = h.scrollTop || document.body.scrollTop;
-      const scrollHeight = (h.scrollHeight || document.body.scrollHeight) - h.clientHeight;
-      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-      progressBar.style.width = pct + '%';
-    }
+    updateProgress();
+    updateParallax();
   };
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+
+  /* Scroll progress bar */
+  const progressBar = document.querySelector('.progress-bar');
+  function updateProgress() {
+    if (!progressBar) return;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  updateProgress();
+
+  /* Parallax elements */
+  const parallaxEls = document.querySelectorAll('[data-parallax]');
+  function updateParallax() {
+    parallaxEls.forEach(el => {
+      const speed = parseFloat(el.getAttribute('data-parallax')) || 0.15;
+      const rect = el.getBoundingClientRect();
+      const centerOffset = rect.top - window.innerHeight / 2;
+      el.style.transform = 'translateY(' + (centerOffset * speed * -0.15) + 'px)';
+    });
+  }
+  updateParallax();
 
   /* Custom cursor */
-  if (window.matchMedia('(min-width: 901px)').matches) {
-    const dot = document.createElement('div');
-    dot.className = 'cursor-dot';
-    const ring = document.createElement('div');
-    ring.className = 'cursor-ring';
-    document.body.appendChild(dot);
-    document.body.appendChild(ring);
-
-    let ringX = 0, ringY = 0, mouseX = 0, mouseY = 0;
-    window.addEventListener('mousemove', (e) => {
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorRing = document.querySelector('.cursor-ring');
+  if (cursorDot && cursorRing && window.matchMedia('(min-width: 901px)').matches) {
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+    window.addEventListener('mousemove', e => {
       mouseX = e.clientX; mouseY = e.clientY;
-      dot.style.left = mouseX + 'px';
-      dot.style.top = mouseY + 'px';
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
     });
-
-    const animateRing = () => {
+    function animateRing() {
       ringX += (mouseX - ringX) * 0.18;
       ringY += (mouseY - ringY) * 0.18;
-      ring.style.left = ringX + 'px';
-      ring.style.top = ringY + 'px';
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top = ringY + 'px';
       requestAnimationFrame(animateRing);
-    };
+    }
     animateRing();
 
-    const hoverables = document.querySelectorAll('a, button, .card, .stat-card, .skill-pill, .contact-card');
-    hoverables.forEach(el => {
-      el.addEventListener('mouseenter', () => { dot.classList.add('hover'); ring.classList.add('hover'); });
-      el.addEventListener('mouseleave', () => { dot.classList.remove('hover'); ring.classList.remove('hover'); });
+    const hoverTargets = document.querySelectorAll('a, button, .card, .creator-card, .magnetic');
+    hoverTargets.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorDot.classList.add('hover');
+        cursorRing.classList.add('hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorDot.classList.remove('hover');
+        cursorRing.classList.remove('hover');
+      });
     });
   }
 
   /* Magnetic buttons */
   document.querySelectorAll('.magnetic').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
+    btn.addEventListener('mousemove', e => {
       const rect = btn.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      btn.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px)`;
+      btn.style.transform = 'translate(' + (x * 0.25) + 'px, ' + (y * 0.35) + 'px)';
     });
-    btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0, 0)'; });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+    });
   });
 
-  /* Scroll reveal (multiple variants) */
-  const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-mask';
+  /* Scroll reveal system */
+  const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate, .reveal-mask';
   const revealEls = document.querySelectorAll(revealSelectors);
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
-    revealEls.forEach(el => io.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add('in-view'));
-  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => io.observe(el));
 
   /* Animated stat counters */
-  const counters = document.querySelectorAll('[data-count]');
-  const animateCount = (el) => {
-    const target = parseFloat(el.getAttribute('data-count'));
-    const suffix = el.getAttribute('data-suffix') || '';
+  const counters = document.querySelectorAll('.counter');
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterIO.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(c => counterIO.observe(c));
+
+  function animateCounter(el) {
+    const raw = el.getAttribute('data-target') || el.textContent;
+    const match = raw.match(/[\d.]+/);
+    if (!match) return;
+    const target = parseFloat(match[0]);
+    const suffix = raw.replace(match[0], '');
     const duration = 1400;
     const start = performance.now();
-    const step = (now) => {
+    function tick(now) {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      const value = target * eased;
-      el.textContent = (Number.isInteger(target) ? Math.floor(value) : value.toFixed(1)) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-  if ('IntersectionObserver' in window && counters.length) {
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) { animateCount(entry.target); cio.unobserve(entry.target); }
-      });
-    }, { threshold: 0.4 });
-    counters.forEach(c => cio.observe(c));
+      const current = (target * eased);
+      const display = target % 1 === 0 ? Math.floor(current) : current.toFixed(1);
+      el.textContent = display + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
   }
 
-  /* Parallax hero blobs / elements */
-  const parallaxEls = document.querySelectorAll('[data-parallax]');
-  if (parallaxEls.length) {
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      parallaxEls.forEach(el => {
-        const speed = parseFloat(el.getAttribute('data-parallax')) || 0.15;
-        el.style.transform = `translateY(${y * speed}px)`;
-      });
-    }, { passive: true });
-  }
 });
