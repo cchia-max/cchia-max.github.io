@@ -236,11 +236,11 @@ nav.navbar {
 /* ---------------- SECTION LABELS ---------------- */
 .section-num {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
+  font-size: 1.4rem;
   color: var(--accent);
   font-weight: 600;
-  letter-spacing: 0.05em;
-  display: inline-block;
+  letter-spacing: 0.02em;
+   display: inline-block;
   margin-bottom: 14px;
 }
 
@@ -431,7 +431,7 @@ section.tight { padding: 80px 0; }
 
 .card .num-tag {
   font-family: 'Fraunces', serif;
-  font-size: 0.85rem;
+  font-size: 1.4rem;
   color: var(--accent);
   margin-bottom: 14px;
   display: block;
@@ -511,7 +511,7 @@ section.tight { padding: 80px 0; }
 }
 .creator-card h3 { font-size: 1.05rem; margin-bottom: 10px; }
 .creator-card p { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 18px; flex-grow: 1; }
-.creator-card .cc-link { font-size: 0.85rem; font-weight: 600; border-top: 1px solid rgba(21,20,15,0.15); padding-top: 14px; }
+.creator-card .cc-link { font-size: 1.4rem; font-weight: 600; border-top: 1px solid rgba(21,20,15,0.15); padding-top: 14px; }
 
 /* ---------------- LIST STYLES (certs / honors) ---------------- */
 .info-list li {
@@ -524,7 +524,7 @@ section.tight { padding: 80px 0; }
 }
 .info-list li:first-child { border-top: 1px solid rgba(21,20,15,0.15); }
 .info-list .il-name { font-weight: 600; }
-.info-list .il-meta { color: var(--ink-soft); text-align: right; font-size: 0.85rem; flex-shrink: 0; }
+.info-list .il-meta { color: var(--ink-soft); text-align: right; font-size: 1.4rem; flex-shrink: 0; }
 
 /* ---------------- DARK CTA BAND ---------------- */
 .dark {
@@ -545,7 +545,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: 1.4rem;
   color: var(--ink-soft);
 }
 footer.on-dark { border-top: 1px solid rgba(245,241,232,0.15); color: rgba(245,241,232,0.6); }
