@@ -572,7 +572,7 @@ footer.on-dark { border-top: 1px solid rgba(245,241,232,0.15); color: rgba(245,2
 .d-4 { transition-delay: 0.35s; }
 .d-5 { transition-delay: 0.45s; }
 
-.reveal-mask { overflow: hidden; display: block; }
+.reveal-mask { overflow: hidden; display: block; padding-bottom: 0.2em; margin-bottom: -0.2em; }
 .reveal-mask span {
   display: inline-block;
   transform: translateY(110%);
