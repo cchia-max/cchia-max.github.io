@@ -3,25 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Catarina Chia</title>
-<meta name="description" content="Get in touch with Catarina Chia via LinkedIn or X.">
+<title>Contact - Catarina Chia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
 <div class="progress-bar"></div>
 
 <header class="site-header">
   <nav class="navbar">
-    <a href="index.html" class="logo">Catarina<span>.</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="experience.html">Experience</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <a href="index.html" class="logo">Catarina Chia</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html">Contact</a>
+    </div>
     <button class="nav-toggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -30,55 +32,54 @@
 
 <main>
 
-  <section class="hero" style="min-height: 66vh;">
+  <section class="hero">
     <div class="container">
-      <span class="section-num">(01) Contact</span>
-      <h1 class="reveal-mask" style="font-size: clamp(2.4rem, 5.6vw, 4.2rem);"><span>Let's <span class="accent-text">connect.</span></span></h1>
-      <p class="sub reveal d-1">Whether it's a coffee chat, a collaboration, or just to say hi — I'd love to hear from you. The best ways to reach me are below.</p>
+      <span class="section-num reveal">(01) Contact</span>
+      <h1 class="reveal-mask"><span>Let's</span></h1>
+      <h1 class="reveal-mask"><span><em>connect</em>.</span></h1>
+      <p class="lead reveal d-2">Whether it's a coffee chat, a collaboration, or just to say hi, I'd love to hear from you. The best ways to reach me are below.</p>
 
-      <div class="contact-links reveal d-2">
-        <a href="https://www.linkedin.com/in/catarina-chia/" target="_blank" rel="noopener" class="contact-card">
-          <div class="icon">in</div>
-          <div class="info">
-            <h4>LinkedIn</h4>
-            <span>linkedin.com/in/catarina-chia</span>
-          </div>
+      <div class="grid-2 reveal d-3" style="margin-top:50px; max-width:760px;">
+        <a class="card magnetic" href="https://www.linkedin.com/in/catarina-chia/" target="_blank" rel="noopener">
+          <span class="num-tag">in</span>
+          <h3>LinkedIn</h3>
+          <p>linkedin.com/in/catarina-chia</p>
         </a>
-        <a href="https://x.com/catarina_chia" target="_blank" rel="noopener" class="contact-card">
-          <div class="icon">𝕏</div>
-          <div class="info">
-            <h4>X (Twitter)</h4>
-            <span>@catarina_chia</span>
-          </div>
+        <a class="card magnetic" href="https://x.com/catarina_chia" target="_blank" rel="noopener">
+          <span class="num-tag">X</span>
+          <h3>X (Twitter)</h3>
+          <p>@catarina_chia</p>
         </a>
       </div>
-      <p class="reveal d-3" style="margin-top: 32px; color: var(--ink-soft);">Prefer email or a direct message? Reach out through LinkedIn and I'll get back to you as soon as I can.</p>
+
+      <p class="reveal d-4" style="margin-top:36px; color:var(--ink-soft); max-width:600px;">Prefer email or a direct message? Reach out through LinkedIn and I'll get back to you as soon as I can.</p>
     </div>
   </section>
 
-  <div class="marquee">
+  <div class="marquee-strip">
     <div class="marquee-track">
       <span>LET'S TALK</span><span>SAY HI</span><span>COLLABORATE</span><span>CONNECT</span>
       <span>LET'S TALK</span><span>SAY HI</span><span>COLLABORATE</span><span>CONNECT</span>
     </div>
   </div>
 
-  <section class="dark cta-band tight">
-    <div class="container reveal-scale">
-      <span class="section-num" style="color:#FF4D23;">(02) Meanwhile</span>
-      <h2>Take a look at where I've been building &amp; growing.</h2>
-      <a href="experience.html" class="btn btn-solid magnetic">View my experience →</a>
+  <section class="dark">
+    <div class="container cta-band">
+      <span class="section-num reveal">(02) Meanwhile</span>
+      <h2 class="reveal d-1">Take a look at where I've been building &amp; growing.</h2>
+      <div class="hero-actions reveal d-2">
+        <a href="experience.html" class="btn on-dark primary magnetic">View my experience &rarr;</a>
+      </div>
+    </div>
+    <div class="container">
+      <footer class="on-dark">
+        <span>&copy; 2026 Catarina Chia</span>
+        <span>Santa Clara, CA</span>
+      </footer>
     </div>
   </section>
 
 </main>
-
-<footer>
-  <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-    <p>© 2026 Catarina Chia.</p>
-    <p><a href="https://www.linkedin.com/in/catarina-chia/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://x.com/catarina_chia" target="_blank" rel="noopener">X</a></p>
-  </div>
-</footer>
 
 <script src="js/script.js"></script>
 </body>
